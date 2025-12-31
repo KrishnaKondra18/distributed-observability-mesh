@@ -39,7 +39,7 @@ node --require ./instrumentation.js app.js
 ```
 
 Architecture (visual)
-- Add an architecture diagram for immediate clarity: docs/assets/architecture-diagram.svg
+- docs/assets/architecture.svg
 - The flow: frontend (Node) -> backend (Go) -> OTel Collector -> exporters (Jaeger, Prometheus, others)
 
 Components & Design Patterns
@@ -102,10 +102,19 @@ Files of interest
 - collector-config.yaml — Collector pipelines & exporters
 - docker-compose.yml — Local multi-service composition
 
-Visuals & Assets (suggested)
-- docs/assets/architecture-diagram.svg (key visual for README)
-- docs/assets/jaeger-example.png
-- docs/assets/grafana-dashboard.png
+Visuals & Assets
+- **Architecture Diagram:**
+  ![Architecture](./docs/assets/architecture.svg)
+
+- **Metrics & Scrapping (Prometheus):**
+  ![Prometheus Scrapping](./docs/assets/prometheus_scrapping.jpg)
+  ![PromQL Analysis](./docs/assets/promQL.jpg)
+  ![PromQL Advanced](./docs/assets/promQL_2.jpg)
+
+- **Distributed Tracing (Jaeger):**
+  ![Jaeger UI](./docs/assets/jaeger_ui.jpg)
+  ![Trace Travel](./docs/assets/traces_travel_in_jeager.jpg)
+  ![Error Handling](./docs/assets/error_traces_travel_in_jeager.jpg)
 
 Development / Contributing
 - Please open issues for feature requests or bugs.
