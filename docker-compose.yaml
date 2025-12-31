@@ -1,0 +1,38 @@
+services:
+  # Jaeger - Distributed Tracing Backend
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686" # Jaeger UI
+      # REMOVED 4317 FROM HERE - Jaeger will receive traces FROM the Collector internally
+
+  # Prometheus - Metrics Backend
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./config/prometheus.yaml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  # OTel Collector - The Pipeline
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    volumes:
+      - ./config/otel-config.yaml:/etc/otelcol-contrib/config.yaml
+    command: ["--config=/etc/otelcol-contrib/config.yaml"]
+    ports:
+      - "4317:4317"   # ADDED mapping: This is the primary entry point for Traces AND Metrics
+      - "4318:4318"   # HTTP receiver
+      - "8889:8889"   # Prometheus exporter port
+    depends_on:
+      - jaeger
+      
+      # Grafana - Visualization Dashboard
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3001:3000" # Mapping to 3001 to avoid common port conflicts
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
