@@ -38,8 +38,16 @@ npm install
 node --require ./instrumentation.js app.js
 ```
 
-Architecture (visual)
-- docs/assets/architecture.svg
+Architecture:
+
+A polyglot reference architecture demonstrating distributed context propagation and telemetry pipeline orchestration using OpenTelemetry. This repository is a proof-of-concept for decoupling telemetry collection from storage backends and showing best-practice patterns for trace and metric propagation across heterogeneous services.
+
+<p align="center">
+  <img src="./docs/assets/architecture.svg" width="850" alt="System Architecture">
+  <br>
+  <em>System Architecture: Distributed Context Propagation Flow</em>
+</p>
+
 - The flow: frontend (Node) -> backend (Go) -> OTel Collector -> exporters (Jaeger, Prometheus, others)
 
 Components & Design Patterns
@@ -104,8 +112,6 @@ Files of interest
 
 Visuals & Assets
 - **Architecture Diagram:**
-  ![Architecture](./docs/assets/architecture.svg)
-
 - **Metrics & Scrapping (Prometheus):**
   ![Prometheus Scrapping](./docs/assets/prometheus_scrapping.jpg)
   ![PromQL Analysis](./docs/assets/promQL.jpg)
