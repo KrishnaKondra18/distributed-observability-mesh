@@ -1,7 +1,5 @@
 # Distributed Observability Mesh
 
-[![CI](https://img.shields.io/badge/CI-pending-lightgrey)]() [![License](https://img.shields.io/badge/license-MIT-blue)]() [![Docker](https://img.shields.io/badge/docker-pending-lightgrey)]()
-
 A polyglot reference architecture demonstrating distributed context propagation and telemetry pipeline orchestration using OpenTelemetry. This repository is a proof-of-concept for decoupling telemetry collection from storage backends and showing best-practice patterns for trace and metric propagation across heterogeneous services.
 
 Why this repo?
