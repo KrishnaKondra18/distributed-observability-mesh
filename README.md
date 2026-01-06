@@ -43,7 +43,7 @@ Architecture:
 A polyglot reference architecture demonstrating distributed context propagation and telemetry pipeline orchestration using OpenTelemetry. This repository is a proof-of-concept for decoupling telemetry collection from storage backends and showing best-practice patterns for trace and metric propagation across heterogeneous services.
 
 <p align="center">
-  <img src="./docs/assets/architecture.svg" width="850" alt="System Architecture">
+  <img src="./docs/assets/architecture.svg" width="650" alt="System Architecture">
   <br>
   <em>System Architecture: Distributed Context Propagation Flow</em>
 </p>
